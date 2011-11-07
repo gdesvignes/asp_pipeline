@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Delete previous local database"
+echo "DROP DATABASE ASP;" |mysql -h localhost -u desvignes -p0244bon 
+
+echo "Restore new local local database"
+echo "CREATE DATABASE ASP;" |mysql -h localhost -u desvignes -p0244bon

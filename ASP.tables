@@ -1,0 +1,10 @@
+
+CREATE TABLE asp_headers(filename varchar(30) default NULL, psrname varchar(16) default NULL, mode varchar(8) default NULL, period float(8), DM float(8), mjd double, freq float(8), bandwidth float(8), nchan int(4), t_int float(8), t_fold float(8), n_dump int(4), status int(4) default NULL, path varchar(128), primary key(filename));
+
+CREATE TABLE asp_processing(filename varchar(128), snr_calibrated float(8) default NULL, tdiff float(8), clkfile varchar(128) default NULL, aspc varchar(128) default NULL, psrchive varchar(128) default NULL, pac_calibrated(128), pazi varchar(128) default NULL, primary key(filename));
+
+CREATE TABLE templates(tpl_id int(4) auto_increment not null, psrname varchar(16) not null, toafilename varchar(128) not null, snr float(8), comments varchar(255) default NULL, primary key(tpl_id, psrname));
+
+CREATE TABLE parfiles(par_id int(4) auto_increment not null, psrname varchar(16) not null, parfilename varchar(128) not null, which_tempo tinyint(1), comments varchar(255) default NULL, primary key(par_id, psrname));
+
+CREATE TABLE timing(psrname varchar(16), toas_file varchar(128), par_id int(4), tpl_id int(4), wrms float(8), comments varchar(255) default NULL, primary key(psrname));
